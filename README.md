@@ -90,7 +90,7 @@ flutter pub get
 ```
 
 ### 2️⃣ Setup Hive
-Ensure Hive is properly set up and initialized in your app. You may need to create a Hive box named `'posts'` before running the app.
+Ensure Hive is properly set up and initialized in your app. You may need to create a Hive box named `'posts'` before running the app. check main.dart
 
 ### 3️⃣ Run the App
 Execute the following command:
