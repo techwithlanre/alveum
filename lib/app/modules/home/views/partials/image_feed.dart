@@ -47,10 +47,10 @@ class ImageFeed extends GetView<HomeController> {
                   imageUrl: post.largeImageURL!,
                   fit: BoxFit.fill,
                   placeholder: (context, url) => Center(
-                    child: ImageLoader(), // Preloader
+                    child: ImageLoader(), 
                   ),
                   errorWidget: (context, url, error) => Center(
-                    child: Icon(Icons.broken_image, size: 50, color: Colors.grey), // Error widget
+                    child: Icon(Icons.broken_image, size: 50, color: Colors.grey), 
                   ),
                 ),
               ),

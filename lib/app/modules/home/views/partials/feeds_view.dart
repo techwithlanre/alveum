@@ -24,11 +24,11 @@ class FeedsView extends GetView<HomeController> {
 
   Widget _posts() {
     return Obx(() {
-      // If no posts and still fetching, show the loader.
+      
       if (controller.allPosts.isEmpty && controller.isFetching.value) {
         return const Center(child: ImageLoader());
       }
-      // If no posts and not fetching, show a no-data message.
+      
       if (controller.allPosts.isEmpty) {
         return const Center(child: Text('No posts found.'));
       }
@@ -43,7 +43,7 @@ class FeedsView extends GetView<HomeController> {
             case 'animation':
               return _eachVideoWidget(post);
             case 'film':
-            // You can create a widget for film posts here.
+            
               return Container();
             default:
               return Container();
@@ -73,7 +73,7 @@ class FeedsView extends GetView<HomeController> {
           imageUrl: post.largeImageURL!,
           fit: BoxFit.cover,
           placeholder: (context, url) => const Center(
-            child: ImageLoader(), // Preloader widget.
+            child: ImageLoader(), 
           ),
           errorWidget: (context, url, error) => const Center(
             child: Icon(Icons.broken_image, size: 50, color: Colors.grey),

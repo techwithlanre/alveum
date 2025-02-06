@@ -66,8 +66,4 @@ class HomeView extends GetView<HomeController> {
       ),
     ];
   }
-
-  Widget _videoPostWidget() {
-    return Container();
-  }
 }

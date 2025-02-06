@@ -57,7 +57,7 @@ class HomeController extends GetxController {
     }
   }
 
-  /// Save posts to cache
+
   void _saveCache() {
     allPosts.map((post) => post.toJson()).toList();
     if (allPosts.length >= 50) {
@@ -71,7 +71,7 @@ class HomeController extends GetxController {
 
     isFetching.value = true;
 
-    // Parallel API request
+    
     await Future.wait([_fetchImages(), _fetchVideos()]);
 
     currentPostPage++;
@@ -129,7 +129,7 @@ class HomeController extends GetxController {
     }
   }
 
-  void prefetchNextImages(int currentIndex) { // 2 images
+  void prefetchNextImages(int currentIndex) { 
     for (int i = currentIndex + 1; i < currentIndex + 3 && i < allPosts.length; i++) {
       final item = allPosts[i];
       if (item.type == 'image') {

@@ -20,7 +20,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
   late Future<void> _initializeVideoPlayerFuture;
   bool _isControlsVisible = true;
   bool _isMuted = false;
-  bool _isInitialized = false; // No longer needed
+  bool _isInitialized = false; 
   Duration _currentPosition = Duration.zero;
 
   @override
@@ -38,21 +38,21 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
 
       _initializeVideoPlayerFuture = _controller.initialize().then((_) {
         setState(() {
-          _isInitialized = true; // Set to true after successful initialization
+          _isInitialized = true; 
           _controller.setLooping(true);
           _controller.setVolume(0.6);
           _controller.play();
         });
       }).catchError((error) {
         print("Error initializing video: $error");
-        // Handle the error, e.g., show a message to the user
-        setState(() {}); // Rebuild to show an error message or placeholder
+        
+        setState(() {}); 
       });
 
-      _controller.addListener(_videoListener); // Add listener for position updates
+      _controller.addListener(_videoListener); 
     } else {
-      // Handle the case where the URL is missing
-      _isInitialized = false; // Important: set this to false
+      
+      _isInitialized = false;
     }
   }
 
@@ -68,7 +68,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
 
   @override
   void dispose() {
-    _controller.removeListener(_videoListener); // Remove listener
+    _controller.removeListener(_videoListener); 
     _controller.dispose();
     super.dispose();
   }
@@ -76,7 +76,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
   void _toggleMute() {
     setState(() {
       _isMuted = !_isMuted;
-      _controller.setVolume(_isMuted ? 0.0 : 0.6); // Set volume to 0 or 0.6
+      _controller.setVolume(_isMuted ? 0.0 : 0.6); 
     });
   }
 
@@ -136,14 +136,14 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
                     child: VideoPlayer(_controller),
                   ),
                 ),
-                _buildControlsOverlay(), // Show controls overlay
+                _buildControlsOverlay(), 
               ],
             ),
           );
         } else if (snapshot.hasError) {
           return Center(child: Text('Error: ${snapshot.error}'));
         } else {
-          return const Center(child: CircularProgressIndicator()); // Loading indicator
+          return const Center(child: CircularProgressIndicator()); 
         }
       },
     );
