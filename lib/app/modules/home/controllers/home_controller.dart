@@ -57,7 +57,6 @@ class HomeController extends GetxController {
     }
   }
 
-
   void _saveCache() {
     allPosts.map((post) => post.toJson()).toList();
     if (allPosts.length >= 50) {
